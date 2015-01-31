@@ -26,7 +26,7 @@ const (
 	MaxFileSize   int64 = 10 * GigaByte
 )
 
-const defaultConfigName = "config.json"
+const DefaultConfigName = "config.json"
 
 const defaultParamsData = `{
 	"Path": "./test",
@@ -215,7 +215,7 @@ func randFromPairs(r *rand.Rand, count int, rps []randPair) []byte {
 	return data
 }
 
-func createFiles(p *Params) error {
+func CreateFiles(p *Params) error {
 
 	if err := p.Error(); err != nil {
 		return err
@@ -354,7 +354,7 @@ func readFileBytes(fileName string) ([]byte, error) {
 	return buffer.Bytes(), nil
 }
 
-func loadParamsFromFile(fileName string) (*Params, error) {
+func LoadParamsFromFile(fileName string) (*Params, error) {
 
 	data, err := readFileBytes(fileName)
 	if err != nil {
@@ -370,7 +370,7 @@ func loadParamsFromFile(fileName string) (*Params, error) {
 	return &p, nil
 }
 
-func createDefaultConfigFile() error {
+func CreateDefaultConfigFile() error {
 
 	p, err := NewParamsDefault()
 	if err != nil {
@@ -382,7 +382,7 @@ func createDefaultConfigFile() error {
 		return err
 	}
 
-	f, err := os.Create(defaultConfigName)
+	f, err := os.Create(DefaultConfigName)
 	if err != nil {
 		return err
 	}
