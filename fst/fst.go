@@ -1,4 +1,4 @@
-package filester
+package fst
 
 import (
 	"bytes"

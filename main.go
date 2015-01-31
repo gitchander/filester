@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	fst "github.com/gitchander/filester"
+	"github.com/gitchander/filester/fst"
 	"os"
 )
 
