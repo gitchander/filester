@@ -2,32 +2,31 @@ package main
 
 import (
 	"fmt"
-	"github.com/gitchander/filester/fst"
 	"os"
 )
 
 func main() {
 
-	fileName := fst.DefaultConfigName
+	fileName := defaultConfigName
 
 	if len(os.Args) == 2 {
 		fileName = os.Args[1]
 	}
 
-	p, err := fst.LoadParamsFromFile(fileName)
+	p, err := LoadParamsFromFile(fileName)
 	if err != nil {
 
-		if err := fst.CreateDefaultConfigFile(); err != nil {
+		if err := CreateDefaultConfigFile(); err != nil {
 			fmt.Println(err)
 			return
 		}
 
-		format := "Create a configuration file (\"%s\"). Configure and run the file again\n"
-		fmt.Printf(format, fst.DefaultConfigName)
+		format := "Create a configuration file (\"%s\"). Configure and run the program again\n"
+		fmt.Printf(format, defaultConfigName)
 		return
 	}
 
-	if err = fst.CreateFiles(p); err != nil {
+	if err = CreateFiles(p); err != nil {
 		fmt.Println(err)
 		return
 	}

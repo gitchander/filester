@@ -13,33 +13,21 @@ Features:
 
 Use:
 
-1) Run filegen.exe - will create config.json
+1) Run filegen - will create config.json
 2) Run any text editor and open config.json , enter the required parameters then save.
 3) Run filegen.exe
 4) View the result of the work :)
 
 Description of configuration file:
 
-{
-	"Path": "./test",				- the path to the folder where the files will be created
-	"CountFiles": 10,				- number of files that will be created
-	"File": {
-		"Name": {
-			"Separator": "_",		- a symbol that will divide file name on the template and randomly generated
-			"Prefix": "",			- specifies the filename template
-			"RandomPart": {
-				"Size": {			- the number of characters in the file name
-					"Min": 8,		- the minimum number of characters in the file name
-					"Max": 15		- the maximum number of characters in the file name
-				}
-			},
-			"Ext": ""				- file extension
-		},
-		"Data": {
-			"Size": {				- size of created file
-				"Min": 10,			- the minimum size of created file (in bytes)
-				"Max": 100			- the maximum size of created file (in bytes)
-			}
-		}
-	}
-}
+Path - the path to the folder where the files will be created
+CountFiles - number of files that will be created
+File.Name.Separator - a symbol that will divide file name on the template and randomly generated
+File.Name.Prefix - specifies the filename template
+File.Name.RandomPart.Size - the number of characters in the file name
+File.Name.RandomPart.Size.Min - the minimum number of characters in the file name
+File.Name.RandomPart.Size.Max	 - the maximum number of characters in the file name
+File.Name.Ext - file extension
+File.Data.Size - size of created file
+File.Data.Size.Min - the minimum size of created file (in bytes)
+File.Data.Size.Max - the maximum size of created file (in bytes)

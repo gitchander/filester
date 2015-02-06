@@ -1,4 +1,4 @@
-package fst
+package main
 
 import (
 	"bytes"
@@ -26,7 +26,7 @@ const (
 	MaxFileSize   int64 = 10 * GigaByte
 )
 
-const DefaultConfigName = "config.json"
+const defaultConfigName = "config.json"
 
 const defaultParamsData = `{
 	"Path": "./test",
@@ -382,7 +382,7 @@ func CreateDefaultConfigFile() error {
 		return err
 	}
 
-	f, err := os.Create(DefaultConfigName)
+	f, err := os.Create(defaultConfigName)
 	if err != nil {
 		return err
 	}
