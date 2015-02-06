@@ -11,12 +11,14 @@ Features:
 - Create a file with the specified extension
 - Configuration file to save the settings
 
+
 Use:
 
 1) Run filegen - will create config.json;
 2) Run any text editor and open config.json , enter the required parameters then save;
 3) Run filegen;
 4) View the result of the work :)
+
 
 Description of configuration file:
 
