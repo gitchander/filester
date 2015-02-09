@@ -28,29 +28,31 @@ const (
 
 const defaultConfigName = "config.json"
 
-const defaultParamsData = `{
-	"Path": "./test",
-	"CountFiles": 10,
-	"File": {
-		"Name": {
-			"Separator": "_",
-			"Prefix": "",
-			"RandomPart": {
-				"Size": {
-					"Min": 8,
-					"Max": 15
-				}
+const defaultParamsData = `
+	{
+		"Path": "./test",
+		"CountFiles": 10,
+		"File": {
+			"Name": {
+				"Separator": "_",
+				"Prefix": "",
+				"RandomPart": {
+					"Size": {
+						"Min": 8,
+						"Max": 15
+					}
+				},
+				"Ext": ""
 			},
-			"Ext": ""
-		},
-		"Data": {
-			"Size": {
-				"Min": 10,
-				"Max": 100
+			"Data": {
+				"Size": {
+					"Min": 10,
+					"Max": 100
+				}
 			}
 		}
 	}
-}`
+`
 
 type randPair struct {
 	Percent int
