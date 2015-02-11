@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"errors"
@@ -304,12 +305,13 @@ func fillBytesSize(fileSize int64, maxSize int) int {
 
 func fileCreateAndFill(fileName string, fileSize int64, fillData []byte) (err error) {
 
-	var wc io.WriteCloser
-	wc, err = os.Create(fileName)
+	f, err := os.Create(fileName)
 	if err != nil {
 		return
 	}
-	defer wc.Close()
+	defer f.Close()
+
+	w := bufio.NewWriter(f)
 
 	n := int64(0)
 	for n < fileSize {
@@ -319,12 +321,16 @@ func fileCreateAndFill(fileName string, fileSize int64, fillData []byte) (err er
 			dn = int(fileSize - n)
 		}
 
-		dn, err = wc.Write(fillData[:dn])
+		dn, err = w.Write(fillData[:dn])
 		if err != nil {
 			return
 		}
 
 		n += int64(dn)
+	}
+
+	if err = w.Flush(); err != nil {
+		return
 	}
 
 	return

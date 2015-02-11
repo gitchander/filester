@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 )
 
 func main() {
@@ -26,8 +27,13 @@ func main() {
 		return
 	}
 
+	beginT := time.Now()
+
 	if err = CreateFiles(p); err != nil {
 		fmt.Println(err)
 		return
 	}
+
+	fmt.Println("All successfully completed!")
+	fmt.Println("Work time:", time.Since(beginT))
 }
